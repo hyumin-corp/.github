@@ -1,0 +1,19 @@
+name: 🚀 Feature / Architecture RFC
+description: Propor uma nova funcionalidade, refatoração estrutural ou módulo.
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivação & Caso de Uso
+      description: Qual problema de negócio ou de arquitetura isso resolve?
+    validations:
+      required: true
+  - type: textarea
+    id: architectural-approach
+    attributes:
+      label: Abordagem Técnica Sugerida
+      description: Proposta de design patterns, contratos de interface (DTOs) ou infraestrutura GCP.
+    validations:
+      required: true

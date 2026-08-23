@@ -1,0 +1,30 @@
+name: 🐛 Bug Report
+description: Registrar um comportamento inesperado ou erro em produção/desenvolvimento.
+title: "[BUG]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: Forneça detalhes técnicos objetivos para reproduzir o problema.
+  - type: textarea
+    id: description
+    attributes:
+      label: Descrição do Problema
+      description: Uma explicação clara do que está quebrando.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para Reprodução
+      placeholder: |
+        1. Executar o comando '...'
+        2. Chamar o endpoint 'POST /api/v1/...' com o payload '...'
+        3. Observar o erro 500
+    validations:
+      required: true
+  - type: textarea
+    id: stacktrace
+    attributes:
+      label: Logs e Stacktrace
+      render: shell
