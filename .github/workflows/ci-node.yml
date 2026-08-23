@@ -2,6 +2,17 @@ name: Reusable TypeScript/Node CI
 
 on:
   workflow_call:
+    inputs:
+      test-command:
+        description: "Comando completo para executar os testes (ex: 'pnpm vitest run'). Se vazio, a etapa é ignorada."
+        required: false
+        type: string
+        default: ""
+      build-command:
+        description: "Comando completo para executar o build (ex: 'pnpm build'). Se vazio, a etapa é ignorada."
+        required: false
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -27,8 +38,10 @@ jobs:
       - name: Typecheck (tsc)
         run: pnpm tsc --noEmit
 
-      - name: Run Unit & Integration Tests (Vitest)
-        run: pnpm vitest run --coverage.enabled=false
+      - name: Run Tests
+        if: ${{ inputs.test-command != '' }}
+        run: ${{ inputs.test-command }}
 
-      - name: Build Application
-        run: pnpm build
+      - name: Run Build Command
+        if: ${{ inputs.build-command != '' }}
+        run: ${{ inputs.build-command }}
