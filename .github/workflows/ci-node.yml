@@ -13,6 +13,11 @@ on:
         required: false
         type: string
         default: ""
+    secrets:
+      GOOGLE_SERVICES_IOS_BASE64:
+        required: false
+      GOOGLE_SERVICES_ANDROID_BASE64:
+        required: false
 
 permissions:
   contents: read
@@ -31,6 +36,18 @@ jobs:
         uses: pnpm/setup@v2
         with:
           cache: true
+
+      - name: Setup Google Services Files (if present)
+        env:
+          IOS_SECRET: ${{ secrets.GOOGLE_SERVICES_IOS_BASE64 }}
+          ANDROID_SECRET: ${{ secrets.GOOGLE_SERVICES_ANDROID_BASE64 }}
+        run: |
+          if [ -n "$IOS_SECRET" ]; then
+            echo "$IOS_SECRET" | base64 --decode > GoogleService-Info.plist
+          fi
+          if [ -n "$ANDROID_SECRET" ]; then
+            echo "$ANDROID_SECRET" | base64 --decode > google-services.json
+          fi
 
       - name: Run Biome Check (Lint & Format)
         run: pnpm biome check --error-on-warnings .
