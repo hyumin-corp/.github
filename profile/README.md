@@ -1,4 +1,4 @@
-# Hyumin IT | Software Architecture
+# tamago labs | software architecture
 
 > Designing systems that scale, evolve, and endure.
 
