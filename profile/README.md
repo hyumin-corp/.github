@@ -9,4 +9,4 @@
 - **Runtimes & Frameworks:** Node.js, Next.js, Expo, Fastify, NestJS, Elysia, Bun, React, React Native
 - **Tooling & Quality:** pnpm, Vite, Vitest, Biome
 - **Architecture:** Clean Architecture, SOLID, Hexagonal, Domain-Driven Design
-- **Cloud & DevOps:** Google Cloud Platform (GCP), GitHub Actions (OIDC/WIF), Docker
+- **Cloud & DevOps:** Google Cloud Platform (GCP), GitHub Actions (OIDC/WIF), Docker, AWS, Cloudflare
